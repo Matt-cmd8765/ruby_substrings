@@ -6,14 +6,14 @@ def substrings(word, array)
     #new array to put word before counting them in the hash
     new_array = []
     splits.each do |subword|
-        # add words that match array partially or fully  
+        # add words that match the subword partially or fully and push them to the array
         array.each do |array_word|
             if subword.include? array_word
                 new_array.push(array_word)
             end
         end
     end
-    # count with a new hash
+    # count the new_array and return to a new hash. 
     new_hash = new_array.reduce(Hash.new(0)) do |count, string| 
         count[string] += 1
         count
